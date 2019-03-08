@@ -1,13 +1,13 @@
 <template>
     <section class="portfolio-content">
         <article class="portfolio-item" v-for="item in items" :key=item.id >
-            <a :href="'/portfolio/detail/' + item .id"  >
+            <a :href=item.link  >
                 <div class="logotipo-container">
-                    <img :src=item.logoImg alt="Logotipo">
+                    <img :src=item.acf.img_logotipo alt="Logotipo">
                 </div>
                 <div class="overlay"></div>
                 <div class="logotipo-bg-img">
-                    <img :src=item.img alt="Portfolio" />
+                    <img :src=item.acf.img_portada alt="Portfolio" />
                 </div>
             </a>
         </article> 
