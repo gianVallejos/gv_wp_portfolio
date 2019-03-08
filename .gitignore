@@ -1,0 +1,15 @@
+wp-content/themes/gvallejos/vue/.DS_Store
+wp-content/themes/gvallejos/vue/node_modules/
+wp-content/themes/gvallejos/vue/dist/
+wp-content/themes/gvallejos/vue/npm-debug.log
+wp-content/themes/gvallejos/vue/yarn-error.log
+wp-content/themes/twentynineteen
+wp-content/themes/twentyseventeen
+wp-content/themes/twentysixteen
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
