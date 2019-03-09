@@ -4,7 +4,7 @@
             <div class="datos-proyecto">
                 <div class="descripcion-layout">
                     <h2>{{ data.title.rendered }}</h2>
-                    <p class="descripcion">{{ data.acf.txt_descripcion }}</p>                
+                    <p class="descripcion" v-html=data.content.rendered ></p>                
                 </div>
                 <div class="tecnologias-layout">
                     <div class="tecnologias-cuadrado">
