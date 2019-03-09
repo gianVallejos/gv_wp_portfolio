@@ -23,21 +23,25 @@
                 </div>
             </div>
             <div class="blog-posts-container">
-                <a v-for="post in posts" :key=post.id href="#">
+                <a v-for="post in posts" :key=post.id :href=post.link >
                     <article class="post-container">
                         <div class="post-content">
-                            <h3>{{ post.title }}</h3>
+                            <h3 v-html=post.title.rendered ></h3>
                             <div class="author">
                                 <div class="item">{{ post.date }}</div>
                                 <span class="separator"><i class="fas fa-circle"></i></span>
-                                <div class="item">{{ post.autor }}</div>                            
+                                <div class="item">{{ post._embedded.author[0].name }}</div>                            
                             </div>
                             <div class="categories">
-                                <div class="item" v-for="item in post.categories" :key=item.id >{{ item.text }}</div>
+                                <div v-if="post._embedded['wp:term']">
+                                    <span class="item" v-for="cat in post._embedded['wp:term'][0]" :key=cat.id >                                    
+                                        {{ cat.name }}                                    
+                                    </span>
+                                </div>
                             </div>                        
                         </div>
                         <div class="overlay"></div>   
-                        <img :src=post.img alt="Blog Imagen">
+                        <img :src=post.fimg_url v-if = "post.fimg_url != false" alt="Blog Imagen">
                     </article>
                 </a>                
             </div>
@@ -107,7 +111,7 @@ export default {
                     position: relative
                     z-index: 6
                     color: white
-                    height: 190px
+                    height: 100%
                     h3
                         margin: 0px
                     .author

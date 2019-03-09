@@ -1,14 +1,26 @@
 <template>
-    <VBlog :posts = posts />
+    <VBlog :posts = api_data />
 </template>
 
 <script>
 
     import VBlog from './VBlog.vue'
+    import axios from 'axios'
 
     export default {
+        mounted() {
+            var _self = this
+            axios.get('http://localhost/gv_wp_portfolio/wp-json/wp/v2/posts?_embed')
+                .then( response => {
+                    _self.api_data = response.data
+                })
+                .catch( e => {
+                    console.log('Error: ' + e)
+                })
+        },
         data () {
             return {
+                api_data: [],
                 posts: [
                     {
                         id: 1,
