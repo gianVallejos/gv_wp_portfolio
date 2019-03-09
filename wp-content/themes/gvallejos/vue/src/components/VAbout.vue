@@ -2,45 +2,46 @@
     <section class="about-content">
         <div class="about-data">
             <section class="about-section">
-                <h2>{{ data.title }}</h2>
-                <p>{{ data.descripcion }}</p>    
+                <h2>ABOUT</h2>
+                <p>{{ data.acf.txt_descripcion }}</p>    
             </section>
             <section class="client">
                 <h2>SOME OF OUR CLIENTS</h2>
                 <p>We love our clients and we want the best for all them.</p>
                 <div class="client-container">
-                    <div class="client-item" v-for="client in data.clients" :key=client.id >
-                        <img :src=client.img alt="Cliente">
+                    <div class="client-item" v-for="client in data.acf.repeater_clientes" :key=client.img_cliente >
+                        <img :src=client.img_cliente alt="Cliente">
                     </div>                    
                 </div>
             </section>    
             <section class="testimonio">
                 <h2>CLIENTS SAYS</h2>
-                <div class="testimonio-content" v-for="testimonio in data.testimonios" :key=testimonio.id >
+                <div class="testimonio-content" v-for="testimonio in data.acf.repeater_testimonios" :key=testimonio.txt_id >
                     <div class="testomino-descripcion-container">
                         <div class="quote">
-                            <img :src=data.quoteImg class="quote-img" alt="Quote sign">
+                            <img :src=quoteImg class="quote-img" alt="Quote sign">
                         </div>
                         <div class="testomino-descripcion">
                             <p>
-                                {{ testimonio.content }}
+                                {{ testimonio.txt_descripcion_de_testimonio }}
                             </p>
                         </div>
                     </div>
                     <div class="testimonio-author">
-                        <span>{{ testimonio.autor }}</span>
+                        <span>{{ testimonio.txt_autor }}</span>
                     </div>
                 </div>
                 <div class="testimonio-img-container">
-                    <a v-for="testimonio in data.testimonios" :key=testimonio.id href="#" class="testimonio-item active">
-                        <img :src=testimonio.userImg alt="Testimonio">
+                    <a v-for="testimonio in data.acf.repeater_testimonios" :key=testimonio.txt_id href="#" class="testimonio-item active">                        
+                        <img v-if="testimonio.image_user != false" :src=testimonio.userImg alt="Testimonio" />
+                        <img v-if="testimonio.image_user == false" :src=imgUserUrl alt="Testimonio" />
                     </a>                    
                 </div>
             </section>        
         </div>
         <div class="about-imagen">
             <div class="about-imagen-container">
-                <img :src=data.aboutImg alt="About Us">
+                <img :src=data.acf.img_imagen_principal alt="About Us">
             </div>
         </div>
     </section>
@@ -49,7 +50,9 @@
 <script>
 export default {
     props: [
-        'data'
+        'data',
+        'quoteImg',
+        'imgUserUrl'
     ]
 }
 </script>
