@@ -1,81 +1,56 @@
 <template>
-    <section class="portfolio-detail-content">
+    <section class="portfolio-detail-content">        
         <div class="container">
             <div class="datos-proyecto">
                 <div class="descripcion-layout">
-                    <h2>{{ data.title }}</h2>
-                    <p class="descripcion">{{ data.descripcion }}</p>                
+                    <h2>{{ data.title.rendered }}</h2>
+                    <p class="descripcion">{{ data.acf.txt_descripcion }}</p>                
                 </div>
                 <div class="tecnologias-layout">
                     <div class="tecnologias-cuadrado">
                         <div class="tecnologias-datos">
-                            <div class="item">Cliente:</div><div class="item-content">{{ data.cliente }}</div>
-                            <div class="item">Date:</div><div class="item-content">{{ data.date }}</div>
-                            <div class="item">Design UI/UX:</div><div class="item-content">{{ data.design }}</div>
-                            <div class="item">Programming:</div><div class="item-content">{{ data.programming }}</div>
+                            <div class="item">Cliente:</div><div class="item-content">{{ data.acf.txt_cliente }}</div>
+                            <div class="item">Date:</div><div class="item-content">{{ data.acf.dt_fecha }}</div>
+                            <div class="item">Design UI/UX:</div><div class="item-content">
+                                <span v-for="disenador in data.acf.repeater_disenadores" :key=disenador.text_disenador >
+                                    {{ disenador.text_disenador }}
+                                </span>
+                            </div>
+                            <div class="item">Programming:</div><div class="item-content">
+                                <span v-for="programador in data.acf.repeater_programadores" :key=programador.text_programador >
+                                {{ programador.text_programador }}
+                                </span>
+                            </div>
                         </div>
                         <div class="tecnologias-imgs">
                             <div class="item">Technologies: </div>
-                            <div class="item-img" v-for="item in data.dataImg" :key=item.id >
-                                <img :src=item.name alt="Technology Imagen">
+                            <div class="item-img" v-for="item in data.acf.repeater_tecnologias" :key=item.img_tecnologia >
+                                <img :src=item.img_tecnologia alt="Technology Imagen">
                             </div>                            
                         </div>
                     </div>
                 </div>
             </div>
             <div class="imagenes-proyecto">
-                <div class="item-imagen-proyecto" v-for="item in data.imageList" :key=item.id>
-                    <img :src=item.name alt="Portfolio" />
+                <div class="item-imagen-proyecto" v-for="item in data.acf.repeater_imgs_proyecto" :key=item.img_proyecto >
+                    <img :src=item.img_proyecto alt="Portfolio" />
                 </div>
             </div>
             <div class="related-proyecto">
                 <div class="title">
                     <h2>RELATED PROJECTS</h2>
                 </div>
-                <a href="#">
+                <a v-for="item in related" :key=item.id :href=item.link >
                     <article class="related-pr-item">
                         <div class="logotipo-container">
-                            <img src="/images/portfolio/logo-01.png" alt="Logotipo">
+                            <img :src=item.acf.img_logotipo alt="Logotipo">
                         </div>
                         <div class="overlay"></div>
                         <div class="logotipo-bg-img">
-                            <img src="/images/portfolio/portfolio-01.png" alt="Portfolio" />
+                            <img :src=item.acf.img_portada alt="Portfolio" />
                         </div>
                     </article>
-                </a>
-                <a href="#">
-                    <article class="related-pr-item">
-                        <div class="logotipo-container">
-                            <img src="/images/portfolio/logo-02.png" alt="Logotipo">
-                        </div>
-                        <div class="overlay"></div>
-                        <div class="logotipo-bg-img">
-                            <img src="/images/portfolio/portfolio-02.png" alt="Portfolio" />
-                        </div>
-                    </article>
-                </a>
-                <a href="#">
-                    <article class="related-pr-item">
-                        <div class="logotipo-container">
-                            <img src="/images/portfolio/logo-03.png" alt="Logotipo">
-                        </div>
-                        <div class="overlay"></div>
-                        <div class="logotipo-bg-img">
-                            <img src="/images/portfolio/portfolio-03.png" alt="Portfolio" />
-                        </div>
-                    </article>
-                </a>
-                <a href="#">
-                    <article class="related-pr-item">
-                        <div class="logotipo-container">
-                            <img src="/images/portfolio/logo-04.png" alt="Logotipo">
-                        </div>
-                        <div class="overlay"></div>
-                        <div class="logotipo-bg-img">
-                            <img src="/images/portfolio/portfolio-04.png" alt="Portfolio" />
-                        </div>
-                    </article>
-                </a>
+                </a>                
             </div>
         </div>
     </section>
@@ -83,16 +58,15 @@
 
 <script>
 export default {
-    mounted() {
-        console.log(this.data)
-    },
     props: [
-        'data'
+        'data',
+        'related'
     ]
 }
 </script>
 
 <style lang="stylus">
+
     .portfolio-detail-content
         position: relative
         display: flex
@@ -103,10 +77,17 @@ export default {
         padding: 70px 0px
         .datos-proyecto
             display: flex
-        .descripcion-layout, .tecnologias-layout,
-        .tecnologias-datos, .tecnologias-imgs
+        .descripcion-layout
             width: 50%
-        .descripcion-layout, .tecnologias-layout
+        .tecnologias-layout
+            width: 50%
+        .tecnologias-datos
+            width: 50%
+        .tecnologias-imgs
+            width: 50%
+        .descripcion-layout
+            margin: 20px
+        .tecnologias-layout
             margin: 20px
         .tecnologias-cuadrado
             display: flex
@@ -122,7 +103,6 @@ export default {
                     max-height: 100%
                     height: initial
                     object-fit: cover
-
         .datos-proyecto 
             .tecnologias-cuadrado 
                 .item
@@ -131,18 +111,16 @@ export default {
                     color: #546972
                     font-size: .95rem
                 .item-content
-                    margin: 5px 0px;
-
+                    margin: 5px 0px
         .imagenes-proyecto 
             .item-imagen-proyecto
-            padding: 20px
-            text-align: center
+                padding: 20px
+                text-align: center
                 img
                     max-width: 100%
                     width: initial
                     height: auto
                     object-fit: cover
-
         .related-proyecto
             display: grid
             grid-template-columns: repeat(4, 1fr)

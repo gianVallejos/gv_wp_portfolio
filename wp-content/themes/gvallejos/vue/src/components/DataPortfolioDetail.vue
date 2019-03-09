@@ -1,46 +1,35 @@
 <template>
-    <VPortfolioDetail :data=portfolio />
+    <VPortfolioDetail :data = this.api_data :related = this.related_portafolio />
 </template>
 
 <script>
 
 import VPortfolioDetail from './VPortfolioDetail.vue'
+import axios from 'axios'
 
 export default {
+    mounted() {
+        var _self = this
+        axios.get('http://localhost/gv_wp_portfolio/wp-json/wp/v2/portafolio/' + _self.id)
+            .then( response => {
+                _self.api_data = response.data
+            })
+            .catch( e => {
+                console.log('Error: ' + e)
+            })
+
+        axios.get('http://localhost/gv_wp_portfolio/wp-json/wp/v2/portafolio/?exclude=' + _self.id + '&per_page=4')
+            .then( response => {
+                _self.related_portafolio = response.data
+            })
+            .catch( e => {
+                console.log('Error: ' + e)
+            })
+    },
     data () {
         return {
-            portfolio: {
-                title: "GREEN TOURS" ,
-                descripcion: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.", 
-                cliente: "Green Tours",
-                date: "June 2018",
-                design: "Gian Vallejos",
-                programming: "Gian Vallejos",                
-                dataImg: [
-                    { 
-                        id: 1, 
-                        name: "/images/tech/tech-01.png"
-                    },
-                    { 
-                        id: 2, 
-                        name: "/images/tech/tech-02.png"
-                    },
-                    { 
-                        id: 3, 
-                        name: "/images/tech/tech-03.png"
-                    }
-                ],
-                imageList: [
-                    {
-                        id: 1,
-                        name: "/images/portfolio/pd-01.png"
-                    },
-                    {
-                        id: 2,
-                        name: "/images/portfolio/pd-01.png"
-                    }
-                ]
-            }
+            api_data: [],
+            related_portafolio: []
         }
     },
     props: [
