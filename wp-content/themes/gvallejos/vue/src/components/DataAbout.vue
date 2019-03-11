@@ -10,7 +10,7 @@
     export default {
         mounted() {
             var _self = this
-            axios.get('http://localhost/gv_wp_portfolio/wp-json/acf/v3/pages/' + this.id_page)
+            axios.get('http://localhost/gv_wp_portfolio/wp-json/wp/v2/pages/' + this.id_page)
                 .then( response => {
                     _self.api_data = response.data
                 })

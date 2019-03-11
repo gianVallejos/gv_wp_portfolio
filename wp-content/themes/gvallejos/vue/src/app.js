@@ -14,7 +14,7 @@ import DataPortfolioDetail from './components/DataPortfolioDetail.vue'
 import DataAbout from './components/DataAbout.vue'
 import DataBlog from './components/DataBlog.vue'
 import DataBlogDetail from './components/DataBlogDetail.vue'
-import DataContact from './components/DataContact.vue'
+import VContactMap from './components/VContactMap.vue'
 
 const app = new Vue({
     el: '#app',
@@ -24,6 +24,6 @@ const app = new Vue({
         DataAbout,
         DataBlog,
         DataBlogDetail,
-        DataContact
+        VContactMap
     }
 });

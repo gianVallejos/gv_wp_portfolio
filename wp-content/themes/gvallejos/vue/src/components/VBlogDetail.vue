@@ -432,6 +432,8 @@ export default {
                     grid-column-end: 3
                     grid-column-start: 1
                     height: 160px
+                textarea
+                    min-height: 87px!important
 
     #related-posts
         margin: 52px 0px

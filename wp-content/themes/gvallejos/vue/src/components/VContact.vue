@@ -61,6 +61,9 @@ export default {
         grid-template-columns: .5fr .5fr
         grid-template-rows: auto 182px
         grid-gap: 24px 33px
+        .form-item
+            textarea
+                min-height: 182px;
 
     .form-item:nth-of-type(3),
     .form-item:nth-of-type(4) 

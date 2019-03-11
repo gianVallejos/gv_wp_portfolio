@@ -26,12 +26,12 @@ export default {
                     name: "About Us",
                     activeName: "about",
                 },
-                {
-                    id: 3,
-                    url: "/blog",
-                    name: "Blog",
-                    activeName: "blog",
-                },
+                // {
+                //     id: 3,
+                //     url: "/blog",
+                //     name: "Blog",
+                //     activeName: "blog",
+                // },
                 {
                     id: 4,
                     url: "/contacto",

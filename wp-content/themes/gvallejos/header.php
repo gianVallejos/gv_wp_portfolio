@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>GVallejos.com Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/app.css" >
+
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

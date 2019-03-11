@@ -40,7 +40,6 @@ input
     max-height: 46px
 
 textarea
-    min-height: 87px
     height: 100%
     resize: none
 
@@ -53,15 +52,15 @@ input, textarea
     &:focus
         outline: none
 
-button
+.btn
     padding: 15px 0px
     border: none
     cursor: pointer
-    &.btn
-        min-width: 140px
-        &.btn-blue
-            background: $azul
-            color: white
+    min-width: 140px!important
+    width: auto
+    &.btn-blue
+        background: $azul
+        color: white
     &:hover
         text-decoration: underline
     &:focus
