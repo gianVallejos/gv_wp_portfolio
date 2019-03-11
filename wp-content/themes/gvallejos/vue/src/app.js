@@ -13,7 +13,7 @@ import DataPortfolio from './components/DataPortfolio.vue'
 import DataPortfolioDetail from './components/DataPortfolioDetail.vue'
 import DataAbout from './components/DataAbout.vue'
 import DataBlog from './components/DataBlog.vue'
-import VBlogDetail from './components/VBlogDetail.vue'
+import DataBlogDetail from './components/DataBlogDetail.vue'
 import DataContact from './components/DataContact.vue'
 
 const app = new Vue({
@@ -23,7 +23,7 @@ const app = new Vue({
         DataPortfolioDetail,
         DataAbout,
         DataBlog,
-        VBlogDetail,
+        DataBlogDetail,
         DataContact
     }
 });

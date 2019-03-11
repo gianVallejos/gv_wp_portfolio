@@ -2,29 +2,24 @@
     <section class="blog-detail-content">
         <div class="container">
             <header class="head-content">
-                <span class="date">5 FEBRERO 2019</span>                
-                <h1 class="title">5 Startups You Will Definitely Hear From In The Future</h1>
+                <span class="date">{{ data.date }}</span>                
+                <h1 class="title">{{ data.title.rendered }}</h1>
                 <div class="details">
                     <div class="author">
-                        Written by Gian Vallejos in
+                        Written by {{ data._embedded.author[0].name }} in
                     </div>
-                    <div class="category">
-                       <a href="#">Technology</a>
+                    <div class="category" v-if="data._embedded['wp:term']" >
+                       <a :href="data._embedded['wp:term'][0][0].link" >{{ data._embedded['wp:term'][0][0].name }}</a>
                     </div>
                 </div>
             </header>
             <div class="post-image">
-                <img src="/images/blog/blog-01.jpg" alt="Post Image">
+                <img :src=data.fimg_url alt="Post Image">
             </div>
             <div class="wrap-content">
                 <div class="post-content">
-                    <article class="content">
-                        <h3>The standard Lorem Ipsum passage, used since the 1500s</h3>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                        <h3>The standard Lorem Ipsum passage, used since the 1500s</h3>
-                        <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                        <h3>The standard Lorem Ipsum passage, used since the 1500s</h3>
-                        <p>"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"</p>
+                    <article class="content" v-html=data.content.rendered>
+                        
                     </article>
                     <div class="tag-content">
                         <a href="#">
@@ -143,10 +138,10 @@
                         <h2>ABOUT ME</h2>
                         <div class="perfil-layout">
                             <div class="img-content">
-                                <img src="/images/blog/blog-03.jpg" alt="Imagen Blog">
+                                <img :src=img_back_perfil alt="Imagen Blog">
                             </div>
                             <div class="img-perfil">
-                                <img src="/images/user.png" alt="Perfil">
+                                <img :src=imgUserUrl alt="Perfil">
                             </div>
                         </div>
                         <div class="title">
@@ -241,7 +236,11 @@
 
 <script>
 export default {
-    
+    props: [
+        'data',
+        'img_back_perfil',
+        'imgUserUrl'
+    ]
 }
 </script>
 
