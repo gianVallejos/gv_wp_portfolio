@@ -20,13 +20,7 @@
                 </ul>
             </nav>
             
-            <div class="redes-sociales">                
-                <div class="rs-item" v-for="rs in rsList" :key=rs.id>
-                    <a :href=rs.url>
-                        <i :class=rs.className ></i>
-                    </a>
-                </div>                
-            </div>
+            <VRedesSociales :rsList = rsList />
             
             <div class="contact">
                 <a href="mailto:gian.vallejos92@gmail.com">
@@ -56,7 +50,13 @@
 </template>
 
 <script>
+
+    import VRedesSociales from './VRedesSociales'
+
     export default {
+        components: {
+            VRedesSociales
+        },
         props: [
             'imageUrl',
             'itemsNav',
@@ -128,17 +128,6 @@
                 &:last-of-type
                     & a
                         border-bottom: 1px dashed #e3e3e3
-
-    .leftbar 
-        .redes-sociales
-            display: flex
-            padding: 36px 0px 26px
-            justify-content: flex-end
-            padding-right: 8px
-            .rs-item
-                margin: 0px 10px
-                i
-                    font-size: 2em
 
     .contact
         font-size: .85em

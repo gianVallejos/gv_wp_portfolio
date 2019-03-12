@@ -17,25 +17,25 @@ export default {
                 {
                     id: 1,
                     url: "/portafolio",
-                    name: "Portfolio",
+                    name: "Portafolio",
                     activeName: "portfolio",
                 },
                 {
                     id: 2,
                     url: "/nosotros",
-                    name: "About Us",
+                    name: "Nosotros",
                     activeName: "about",
                 },
-                // {
-                //     id: 3,
-                //     url: "/blog",
-                //     name: "Blog",
-                //     activeName: "blog",
-                // },
+                {
+                    id: 3,
+                    url: "#",
+                    name: "Blog",
+                    activeName: "blog",
+                },
                 {
                     id: 4,
                     url: "/contacto",
-                    name: "Contact Us",
+                    name: "Contacto",
                     activeName: "contact",
                 }
             ],

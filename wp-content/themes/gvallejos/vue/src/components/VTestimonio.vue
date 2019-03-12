@@ -1,6 +1,6 @@
 <template>
     <section class="testimonio">
-        <h2>CLIENTS SAYS</h2>
+        <h2>TESTIMONIOS</h2>
         <div class="testimonio-content">
             <div class="testimonio-descripcion-container">
                 <div class="arrow-left" v-on:click=prevTestimonio() v-if="datos.length > 1" >

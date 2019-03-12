@@ -2,7 +2,7 @@
     <section class="about-content">
         <div class="about-data">
             <section class="about-section">
-                <h2>ABOUT</h2>
+                <h2>SOBRE MI</h2>
                 <p v-html=data.content.rendered ></p>    
             </section>
             
@@ -52,9 +52,7 @@ export default {
         section
             width: 642px
         .about-section
-            padding-bottom: 48px
-            p
-                padding: 16px 0px
+            padding-bottom: 20px
 
     .about-imagen
         display: flex

@@ -1,7 +1,7 @@
 <template>
     <section class="client">
-        <h2>SOME OF OUR CLIENTS</h2>
-        <p>We love our clients and we want the best for all them.</p>
+        <h2>CLIENTES</h2>
+        <!-- <p>Nosotros nos preocupamos por nuestros clientes y siempre queremos lo mejor para ellos.</p> -->
         <div class="client-container">
             <div class="client-item" v-for="client in datos" :key=client.img_cliente >
                 <img :src=client.img_cliente alt="Cliente">
