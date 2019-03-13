@@ -6,7 +6,7 @@
                 <div class="contact-data-layout">
                     <div class="contact-data">
                         <h2>¿EMPEZAMOS UN PROYECTO?</h2>
-                        <p class="contact-descripcion">Si tienes alguna idea para un proyecto o alguna consulta, escríbeme y me pondré en contacto contigo lo más rápido posible.</p>
+                        <p class="contact-descripcion">Si tienes alguna idea para un proyecto o alguna consulta, escríbenos y nos pondremos en contacto contigo lo más rápido posible.</p>
                         
                         <?php echo do_shortcode('[contact-form-7 id="103" title="Mi contact form"]'); ?>
                         

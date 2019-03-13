@@ -25,13 +25,14 @@
 <style lang="stylus">
     .portfolio-content
         position: relative
-        display: flex
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
         flex-shrink: 1
         flex-wrap: wrap
 
     .portfolio-item
         position: relative
-        width: 33.32%
+        width: 100%
         height: 565px
         box-sizing: border-box
         overflow: hidden
@@ -74,5 +75,21 @@
                 img
                     width: auto
                     height: 80px
+
+    @media ( max-width: 1199px )
+        .portfolio-item
+            height: 320px
+    
+    @media ( max-width: 992px )
+        .portfolio-item
+            height: 250px
+
+        .portfolio-item 
+            a 
+                .logotipo-container 
+                    img
+                        height: 58px
+        
+
 </style>
 

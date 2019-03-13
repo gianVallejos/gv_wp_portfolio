@@ -1,10 +1,13 @@
 <template>
     <section class="portfolio-detail-content">        
         <div class="container">
+            <div class="title-proyecto">
+                <img v-if="data.acf.img_logotipo_transparente" :src=data.acf.img_logotipo_transparente alt="Logotipo"  />
+                <h2 v-else>{{ data.title.rendered }}</h2>
+            </div>
             <div class="datos-proyecto">
-                <div class="descripcion-layout">
-                    <h2>{{ data.title.rendered }}</h2>
-                    <p class="descripcion" v-html=data.content.rendered ></p>                
+                <div class="descripcion-layout">                    
+                    <p class="descripcion-proyect-detail" v-html=data.content.rendered ></p>                
                 </div>
                 <div class="tecnologias-layout">
                     <VProyectoCuadrado :data = data.acf />
@@ -49,6 +52,7 @@ export default {
         padding: 70px 0px
         .datos-proyecto
             display: flex
+            margin-bottom: 20px
         .descripcion-layout
             width: 50%
         .tecnologias-layout
@@ -61,10 +65,13 @@ export default {
             margin: 20px
         .tecnologias-layout
             margin: 20px
-        .tecnologias-cuadrado
             display: flex
-            background: #dfe8f0
-            padding: 42px 40px
+            align-items: center
+            .tecnologias-cuadrado
+                display: flex
+                background: #dfe8f0
+                padding: 42px 40px
+                width: 100%
         .tecnologias-imgs 
             .item-img
                 max-height: 62px
@@ -128,4 +135,20 @@ export default {
                 .logotipo-bg-img 
                     img
                         transition: .6s all ease
+    p
+        &.descripcion-proyect-detail
+            margin: 0px
+            padding: 0px
+
+    .title-proyecto
+        text-align: center
+        padding: 20px 0px
+        text-transform: uppercase
+
+    @media ( max-width: 1200px )
+        .portfolio-detail-content 
+            .descripcion-layout
+                width: 100%
+            .tecnologias-layout
+                display: none
 </style>

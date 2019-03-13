@@ -9,7 +9,7 @@ $white = #fff
 
 body
     margin: 0
-    font-size: 14px
+    font-size: 15px
     font-family: 'Open Sans', sans-serif
     background: #e0e0e0
 
@@ -67,6 +67,10 @@ input, textarea
 
 .container
     width: 100%
+    padding-right: 25px
+    padding-left: 25px
+    margin-right: auto
+    margin-left: auto
 
 .btn-input
     width: 46px
@@ -84,6 +88,29 @@ input, textarea
     align-items: center
     padding: 0px 4px
     font-size: 5px
+
+/* Contact Form Validations */ 
+span
+    &.wpcf7-not-valid-tip
+        color: #b20000!important
+        border-top: 3px solid #b20000
+        padding: 10px 0px
+        font-size: .82rem
+
+div
+    &.wpcf7-response-output
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 999
+        width: 100%
+        height: 100px
+        line-height: 100px
+        text-align: center
+        background: rgba(0, 0, 0, .8)
+        color: white
+        margin: 0px
+        border: none
 
 @media (min-width: 576px)
     .container

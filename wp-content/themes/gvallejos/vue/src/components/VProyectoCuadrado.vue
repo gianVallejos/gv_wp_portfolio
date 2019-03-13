@@ -2,20 +2,20 @@
     <div class="tecnologias-cuadrado">
         <div class="tecnologias-datos">
             <div class="item">Cliente:</div><div class="item-content">{{ data.txt_cliente }}</div>
-            <div class="item">Date:</div><div class="item-content">{{ data.dt_fecha }}</div>
-            <div class="item" v-if="data.repeater_disenadores.length != 0" >Design UI/UX:</div><div class="item-content">
-                <span v-for="(disenador, key) in data.repeater_disenadores" :key=key >
+            <div class="item">Fecha:</div><div class="item-content">{{ data.dt_fecha }}</div>
+            <div class="item" v-if="data.repeater_disenadores.length != 0" >Diseño:</div><div class="item-content">
+                <div v-for="(disenador, key) in data.repeater_disenadores" :key=key >
                     {{ disenador.text_disenador }}
-                </span>
+                </div>
             </div>
-            <div class="item" v-if="data.repeater_programadores.length != 0">Programming:</div><div class="item-content">
-                 <span v-for="(programador, key) in data.repeater_programadores" :key=key >
-                {{ programador.text_programador }}
-                </span>
+            <div class="item" v-if="data.repeater_programadores.length != 0">Programación:</div><div class="item-content">
+                 <div v-for="(programador, key) in data.repeater_programadores" :key=key >
+                    {{ programador.text_programador }}
+                </div>
             </div>
         </div>
         <div class="tecnologias-imgs">
-            <div class="item" v-if="data.repeater_tecnologias.length != 0">Technologies: </div>
+            <div class="item" v-if="data.repeater_tecnologias.length != 0">Tecnologías Utilizadas: </div>
             <div class="item-img" v-for="(item, key) in data.repeater_tecnologias" :key=key >
                 <img :src=item.img_tecnologia alt="Technology Imagen">
             </div>                            
