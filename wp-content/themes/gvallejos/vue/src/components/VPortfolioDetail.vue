@@ -7,61 +7,33 @@
                     <p class="descripcion" v-html=data.content.rendered ></p>                
                 </div>
                 <div class="tecnologias-layout">
-                    <div class="tecnologias-cuadrado">
-                        <div class="tecnologias-datos">
-                            <div class="item">Cliente:</div><div class="item-content">{{ data.acf.txt_cliente }}</div>
-                            <div class="item">Date:</div><div class="item-content">{{ data.acf.dt_fecha }}</div>
-                            <div class="item">Design UI/UX:</div><div class="item-content">
-                                <span v-for="disenador in data.acf.repeater_disenadores" :key=disenador.text_disenador >
-                                    {{ disenador.text_disenador }}
-                                </span>
-                            </div>
-                            <div class="item">Programming:</div><div class="item-content">
-                                <span v-for="programador in data.acf.repeater_programadores" :key=programador.text_programador >
-                                {{ programador.text_programador }}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="tecnologias-imgs">
-                            <div class="item">Technologies: </div>
-                            <div class="item-img" v-for="item in data.acf.repeater_tecnologias" :key=item.img_tecnologia >
-                                <img :src=item.img_tecnologia alt="Technology Imagen">
-                            </div>                            
-                        </div>
-                    </div>
+                    <VProyectoCuadrado :data = data.acf />
                 </div>
             </div>
-            <div class="imagenes-proyecto">
+            <div class="imagenes-proyecto" v-if="data.acf.repeater_imgs_proyecto.length > 0 ">
                 <div class="item-imagen-proyecto" v-for="item in data.acf.repeater_imgs_proyecto" :key=item.img_proyecto >
                     <img :src=item.img_proyecto alt="Portfolio" />
                 </div>
             </div>
-            <div class="related-proyecto">
-                <div class="title">
-                    <h2>RELATED PROJECTS</h2>
-                </div>
-                <a v-for="item in related" :key=item.id :href=item.link >
-                    <article class="related-pr-item">
-                        <div class="logotipo-container">
-                            <img :src=item.acf.img_logotipo alt="Logotipo">
-                        </div>
-                        <div class="overlay"></div>
-                        <div class="logotipo-bg-img">
-                            <img :src=item.acf.img_portada alt="Portfolio" />
-                        </div>
-                    </article>
-                </a>                
-            </div>
+            <VRelatedProjects :data = related  title = "OTROS PROYECTOS"  />
         </div>
     </section>
 </template>
 
 <script>
+
+import VProyectoCuadrado from './VProyectoCuadrado.vue'
+import VRelatedProjects from './VRelatedProjects.vue'
+
 export default {
     props: [
         'data',
         'related'
-    ]
+    ],
+    components: {
+        VProyectoCuadrado,
+        VRelatedProjects
+    }
 }
 </script>
 
@@ -102,16 +74,7 @@ export default {
                     width: initial
                     max-height: 100%
                     height: initial
-                    object-fit: cover
-        .datos-proyecto 
-            .tecnologias-cuadrado 
-                .item
-                    font-weight: 600
-                    padding: 5px 0px
-                    color: #546972
-                    font-size: .95rem
-                .item-content
-                    margin: 5px 0px
+                    object-fit: cover            
         .imagenes-proyecto 
             .item-imagen-proyecto
                 padding: 20px

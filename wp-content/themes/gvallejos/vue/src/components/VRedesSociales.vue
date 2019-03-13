@@ -1,7 +1,7 @@
 <template>
     <div class="redes-sociales">                
         <div class="rs-item" v-for="rs in rsList" :key=rs.id>
-            <a :href=rs.url>
+            <a :href=rs.url target="_blank">
                 <i :class=rs.className ></i>
             </a>
         </div>                

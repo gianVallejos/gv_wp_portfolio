@@ -43,22 +43,22 @@ export default {
                 {
                     id: 1,
                     className: "fab fa-instagram",
-                    url: "#"
+                    url: "https://www.instagram.com/gianvallejos/"
                 },
                 {
                     id: 2,
                     className: "fab fa-github",
-                    url: "#"
+                    url: "https://github.com/gianVallejos"
                 },
                 {
                     id: 3,
                     className: "fab fa-facebook",
-                    url: "#"
+                    url: "https://www.facebook.com/gianpvb"
                 },
                 {
                     id: 4,
                     className: "fab fa-twitter",
-                    url: "#"
+                    url: "https://twitter.com/srvallejos"
                 }
             ],
             navActive: ''
