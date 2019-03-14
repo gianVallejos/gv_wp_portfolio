@@ -147,8 +147,17 @@ export default {
 
     @media ( max-width: 1200px )
         .portfolio-detail-content 
+            .datos-proyecto
+                display: initial 
             .descripcion-layout
-                width: 100%
+                width: initial
             .tecnologias-layout
-                display: none
+                width: initial
+                padding-top: 25px
+            .related-proyecto 
+                a 
+                    .related-pr-item 
+                        .logotipo-container
+                            img
+                                height: 55px
 </style>

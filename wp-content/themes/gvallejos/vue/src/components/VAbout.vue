@@ -44,26 +44,33 @@ export default {
         
     .about-data
         display: flex
-        width: 50%
+        width: 65%
         justify-content: center
         align-items: center
         flex-direction: column
-        padding: 75px 0px
+        padding: 75px 25px
         section
-            width: 642px
+            width: 100%
+            max-width: 642px
         .about-section
             padding-bottom: 20px
 
     .about-imagen
         display: flex
-        width: 50%
+        width: 35%
         min-height: 100%
         justify-content: center
-        align-items: center
 
     .about-imagen-container
-        width: 640px
-        height: 850px
+        width: 100%
+        img
+            height: 100%
+            object-fit: cover
 
+    @media (max-width: 1199px )
+        .about-data
+            width: 100%
+        .about-imagen
+            display: none
 </style>
 

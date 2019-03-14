@@ -12,7 +12,7 @@ export default {
 </script>
 <style lang="stylus">
     .contact-map-layout
-        width: 610px;
+        width: 100%;
         height: 595px;
 
 </style>
